@@ -1,21 +1,24 @@
 import { Component, EventEmitter } from 'angular2/core';
-import { KegComponent } from './keg.component';
+import { KegListComponent } from './keg-list.component';
 import { Keg } from './keg.model';
 
 @Component({
   selector: 'my-app',
-  directives: [KegComponent],
+  directives: [KegListComponent],
   template: `
     <h1>Tap List</h1>
-    <keg-display [keg]="keg">
-    </keg-display>
+    <keg-list [kegList] = "kegs">
+    </keg-list>
   `
 })
 
 export class AppComponent {
-  public keg: Keg;
+  public kegs: Keg[];
   constructor() {
-    this.keg = new Keg("IPA", "HUB", 4.50, 7.1);
+    this.kegs = [
+      new Keg("IPA", "HUB", 4.50, 7.1),
+      new Keg("Saison", "Commons", 4.50, 6.3),
+      new Keg("Porter", "Basecamp", 5.00, 5.8)
+    ];
   }
-
 }
