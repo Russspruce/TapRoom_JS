@@ -19,8 +19,8 @@ export class AppComponent {
   constructor() {
     this.kegs = [
       new Keg("IPA", "HUB", 4.50, 7.1),
-      new Keg("Saison", "Commons", 4.50, 6.3),
-      new Keg("Porter", "Basecamp", 5.00, 5.8)
+      new Keg("Saison", "Commons", 4.50, 9),
+      new Keg("Porter", "Basecamp", 7, 5.8)
     ];
   }
 }

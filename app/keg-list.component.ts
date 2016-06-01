@@ -3,13 +3,20 @@ import { KegComponent } from './keg.component';
 import { Keg } from './keg.model';
 import { NewKegComponent } from './new-keg.component';
 import { EditKegComponent } from './edit-keg.component';
+import { LowKegPipe } from './low-keg.pipe';
 
 @Component({
   selector: 'keg-list',
   inputs: ['kegList'],
+  pipes: [LowKegPipe],
   directives: [KegComponent, NewKegComponent, EditKegComponent],
   template: `
-  <keg-display *ngFor="#currentKeg of kegList"
+  <select (change)="onChange($event.target.value)">
+    <option value="all" selected="selected">Show All</option>
+    <option value="low">Show Low Kegs</option>
+    <option value="empty">Empty</option>
+  </select>
+  <keg-display *ngFor="#currentKeg of kegList | low:filterLevel"
   (click)="kegClicked(currentKeg)"
   [keg]="currentKeg"
   [class.selected]="currentKeg === selectedKeg">
@@ -23,6 +30,7 @@ export class KegListComponent {
   public kegList: Keg[];
   public onKegSelect: EventEmitter<Keg>;
   public selectedKeg: Keg;
+  public filterLevel: String = "all";
 
   constructor() {
     this.onKegSelect = new EventEmitter();
@@ -35,5 +43,9 @@ export class KegListComponent {
 
   createKeg(newKeg: Keg): void {
     this.kegList.push(newKeg);
+  }
+
+  onChange(filterOption): void {
+    this.filterLevel = filterOption;
   }
 }

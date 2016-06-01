@@ -1,3 +1,16 @@
+body {
+  font-family: sans-serif;
+}
+
 .selected {
   color: #22bdf0;
+}
+
+.expensive {
+  background-color: yellow;
+}
+
+.strong {
+  font-weight: bold;
+  font-family: cursive;;
 }
