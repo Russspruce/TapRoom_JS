@@ -6,9 +6,11 @@ import { Keg } from './keg.model';
   selector: 'my-app',
   directives: [KegListComponent],
   template: `
+  <div class="container">
     <h1>Tap List</h1>
     <keg-list [kegList] = "kegs">
     </keg-list>
+  </div>
   `
 })
 
