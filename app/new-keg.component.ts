@@ -5,14 +5,14 @@ import {Keg} from './keg.model';
   selector: 'new-keg',
   outputs: ['onSubmitNewKeg'],
   template:`
-  <div class="keg-form">
+  <form name="newKegForm">
     <h3>Add Keg:</h3>
-    <input placeholder="Name" class="col-sm-8 input-lg" #newName>
-    <input placeholder="Brewery" class="col-sm-8 input-lg" #newBrewery>
-    <input placeholder="Price" class="col-sm-8 input-lg" #newPrice>
-    <input placeholder="ABV" class="col-sm-8 input-lg" #newABV>
-  <button (click)="addKeg(newName, newBrewery, newPrice, newABV)" class="btn-success btn-lg">Submit</button>
-  </div>
+    <input placeholder="Name" class="col-sm-8 input-lg" #newName />
+    <input placeholder="Brewery" class="col-sm-8 input-lg" #newBrewery />
+    <input placeholder="Price" class="col-sm-8 input-lg" #newPrice />
+    <input placeholder="ABV" class="col-sm-8 input-lg" #newABV />
+    <button (click)="addKeg(newName, newBrewery, newPrice, newABV)" class="btn-success btn-lg">Submit</button>
+  </form>
   `
 })
 
