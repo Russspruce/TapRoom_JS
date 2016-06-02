@@ -11,11 +11,13 @@ import { LowKegPipe } from './low-keg.pipe';
   pipes: [LowKegPipe],
   directives: [KegComponent, NewKegComponent, EditKegComponent],
   template: `
+  <div align="center">
   <select (change)="onChange($event.target.value)">
     <option value="all" selected="selected">Show All</option>
     <option value="low">Show Low Kegs</option>
     <option value="empty">Empty</option>
   </select>
+  </div>
   <keg-display *ngFor="#currentKeg of kegList | low:filterLevel"
   (click)="kegClicked(currentKeg)"
   [keg]="currentKeg"

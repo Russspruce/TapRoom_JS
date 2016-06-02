@@ -5,14 +5,20 @@ import {Keg} from './keg.model';
   selector: 'new-keg',
   outputs: ['onSubmitNewKeg'],
   template:`
+  <div class="newKegForm">
   <form name="newKegForm">
     <h3>Add Keg:</h3>
-    <input placeholder="Name" class="col-sm-8 input-lg" #newName />
-    <input placeholder="Brewery" class="col-sm-8 input-lg" #newBrewery />
-    <input placeholder="Price" class="col-sm-8 input-lg" #newPrice />
-    <input placeholder="ABV" class="col-sm-8 input-lg" #newABV />
-    <button (click)="addKeg(newName, newBrewery, newPrice, newABV)" class="btn-success btn-lg">Submit</button>
+    <div class="container">
+    <input placeholder="Name" class="col-sm-4 col-sm-offset-4 input-lg" #newName />
+    <input placeholder="Type" class="col-sm-4 col-sm-offset-4 input-lg" #newType />
+    <input placeholder="Brewery" class="col-sm-4 col-sm-offset-4 input-lg" #newBrewery />
+    <input placeholder="Price" class="col-sm-4 col-sm-offset-4 input-lg" #newPrice />
+    <input placeholder="ABV" class="col-sm-4 col-sm-offset-4 input-lg" #newABV />
+    <input placeholder="IBU" class="col-sm-4 col-sm-offset-4 input-lg" #newIBU />
+    </div>
+    <button (click)="addKeg(newName, newType, newBrewery, newPrice, newABV, newIBU)" class="btn-success btn-lg">Submit</button>
   </form>
+  </div>
   `
 })
 
@@ -21,14 +27,16 @@ export class NewKegComponent {
   constructor(){
     this.onSubmitNewKeg = new EventEmitter();
   }
-  addKeg(newName: HTMLInputElement, newBrewery: HTMLInputElement, newPrice: HTMLInputElement, newABV: HTMLInputElement){
-    var keg = new Keg(newName.value, newBrewery.value, parseInt(newPrice.value), parseInt(newABV.value));
+  addKeg(newName: HTMLInputElement, newType: HTMLInputElement, newBrewery: HTMLInputElement, newPrice: HTMLInputElement, newABV: HTMLInputElement, newIBU: HTMLInputElement){
+    var keg = new Keg(newName.value, newType.value, newBrewery.value, parseInt(newPrice.value), parseInt(newABV.value), parseInt(newIBU.value));
 
     this.onSubmitNewKeg.emit(keg);
     newName.value= "";
+    newType.value= "";
     newBrewery.value= "";
     newPrice.value= "";
     newABV.value= "";
+    newIBU.value= "";
     //clear forms
   }
 }

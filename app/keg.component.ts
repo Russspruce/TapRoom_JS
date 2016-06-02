@@ -8,8 +8,9 @@ import { Keg } from './keg.model';
     <div>
       <h3
       [class.expensive]="keg.price >= 5"
-      [class.strong]="keg.abv >= 8">
-        {{ keg.name }} - {{ keg.brewery }}, {{ keg.abv }}\% :  \${{ keg.price }} <br>Pints left: {{ keg.level }}
+      [class.strong]="keg.abv >= 8"
+      [class.bitter]="keg.ibu >= 45">
+        {{ keg.name }}  ({{ keg.type }}) - {{ keg.brewery }}, {{ keg.abv }}\% - IBU: {{ keg.ibu }}:  \${{ keg.price }} <br>Pints left: {{ keg.level }}
       </h3>
       <button type="submit" (click)="pourPints(4)" *ngIf="keg.level >= 4">Pour a pitcher</button>
       <button type="submit" (click)="pourPints(1)" *ngIf="keg.level >= 1">Pour a pint</button>

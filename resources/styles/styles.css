@@ -1,16 +1,51 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Sorts Mill Goudy', serif;
+  text-align: right;
+  background-color: #C4EC94;
+}
+
+.Tap_Title {
+  text-align: center;
+  font-size: 75px;
+  background-color: #F0EECE;
+  padding-top: 10px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.keg-form {
+
+  display: inline-block;
 }
 
 .selected {
   color: #22bdf0;
+  background-color: #F0EECE;
 }
 
 .expensive {
-  background-color: yellow;
+  color: #663399;
 }
 
 .strong {
   font-weight: bold;
-  font-family: cursive;;
+  font-family: 'Comfortaa', cursive;
+}
+
+.bitter {
+  color: #DF3500;
+}
+
+.newKegForm {
+  text-align: center;
+}
+.btn-success {
+  margin: 20px;
+}
+
+.edit {
+  text-align: center;
+}
+input {
+  background-color: #F0EECE;
 }
